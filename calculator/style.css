@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 80px;
+    font-size: 2.5em;
+    text-align: right;
+    padding: 0 20px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    outline: none;
+    font-weight: bold;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    height: 70px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.number {
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    color: #333;
+}
+
+.number:hover {
+    background: linear-gradient(145deg, #e0e0e0, #bababa);
+}
+
+.operator {
+    background: linear-gradient(145deg, #ff9a56, #ff6b35);
+    color: white;
+}
+
+.operator:hover {
+    background: linear-gradient(145deg, #ff8a46, #ff5b25);
+}
+
+.equals {
+    background: linear-gradient(145deg, #4CAF50, #45a049);
+    color: white;
+    grid-column: span 2;
+}
+
+.equals:hover {
+    background: linear-gradient(145deg, #45a049, #3d8b40);
+}
+
+.clear {
+    background: linear-gradient(145deg, #f44336, #d32f2f);
+    color: white;
+}
+
+.clear:hover {
+    background: linear-gradient(145deg, #e53935, #c62828);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    #display {
+        height: 60px;
+        font-size: 2em;
+    }
+    
+    .btn {
+        height: 60px;
+        font-size: 1.5em;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+}
+
+/* Animation for button press */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.btn:active {
+    animation: buttonPress 0.1s ease;
+}
+
+/* Error state */
+.error {
+    color: #f44336 !important;
+    background: rgba(244, 67, 54, 0.1) !important;
+}
